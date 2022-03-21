@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class OppositeTask {
     public static void main(String[] args) {
@@ -8,20 +6,23 @@ public class OppositeTask {
         int cases = in.nextInt();
         int caseNo = 0;
 
-        HashMap<Integer, List<Integer>> dataset = new HashMap<>();
+        HashMap<String, ArrayList<Integer>> dataset = new HashMap<>();
 
         while (caseNo < cases) {
             int currentInt = in.nextInt();
             String key = String.valueOf(currentInt);
 
-            /*if (dataset.get(currentInt)) {
-                System.out.println(1 + " " + (currentInt - 1));
-            } else {
+            if (dataset.get(key) == null) {
                 System.out.println(0 + " " + currentInt);
-            }*/
 
+                ArrayList<Integer> list = new ArrayList<>();
+                list.add(currentInt);
+                dataset.put(key, list);
+            } else {
+                System.out.println(dataset.get(key).size() + " " + currentInt);
 
-//            dataset.put(currentInt, )
+                dataset.get(key).add(currentInt);
+            }
 
             caseNo++;
         }
