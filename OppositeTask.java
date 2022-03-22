@@ -1,30 +1,16 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class OppositeTask {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int cases = in.nextInt();
-        int caseNo = 0;
-
-        HashMap<String, ArrayList<Integer>> dataset = new HashMap<>();
-
-        while (caseNo < cases) {
-            int currentInt = in.nextInt();
-            String key = String.valueOf(currentInt);
-
-            if (dataset.get(key) == null) {
-                System.out.println(0 + " " + currentInt);
-
-                ArrayList<Integer> list = new ArrayList<>();
-                list.add(currentInt);
-                dataset.put(key, list);
+class OppositeTask {
+    public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        int T = scanner.nextInt(), n;
+        for (int i = 1; i <= T; i++) {
+            n = scanner.nextInt();
+            if (n > 10) {
+                System.out.printf("10 %d\n", (n - 10));
             } else {
-                System.out.println(dataset.get(key).size() + " " + currentInt);
-
-                dataset.get(key).add(currentInt);
+                System.out.printf("0 %d\n", n);
             }
-
-            caseNo++;
         }
     }
 }
