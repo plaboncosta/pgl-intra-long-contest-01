@@ -8,16 +8,12 @@ public class HigherMath {
         int caseNo = 1;
 
         while (caseNo <= cases) {
-            int a = in.nextInt();
-            int b = in.nextInt();
-            int c = in.nextInt();
+            double a = Math.pow(in.nextInt(), 2);
+            double b = Math.pow(in.nextInt(), 2);
+            double c = Math.pow(in.nextInt(), 2);
 
-            if ((a >= 1 && a <= 40000) && (b >= 1 && b <= 40000) && (c >= 1 && c <= 40000)) {
-                if (Math.pow(c, 2) == (Math.pow(a, 2) + Math.pow(b, 2))) {
-                    System.out.println("Case " + caseNo + ": yes");
-                } else {
-                    System.out.println("Case " + caseNo + ": no");
-                }
+            if ((a + b) == c) {
+                System.out.println("Case " + caseNo + ": yes");
             } else {
                 System.out.println("Case " + caseNo + ": no");
             }
