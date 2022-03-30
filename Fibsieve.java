@@ -5,24 +5,29 @@ public class Fibsieve {
         Scanner in = new Scanner(System.in);
         int cases = in.nextInt();
         int caseNo = 1;
-        int[][] dataSet = {
-                {1, 4, 5, 16, 17},
-                {2, 3, 6, 15, 18},
-                {9, 8, 7, 14, 19},
-                {10, 11, 12, 13, 20},
-                {25, 24, 23, 22, 21},
-        };
 
         while (caseNo <= cases) {
-            int input = in.nextInt();
+            long seconds, root, lackings, row, column;
+            seconds = in.nextLong();
 
-            for (int row = 0; row < dataSet.length; row++) {
-                for (int column = 0; column < dataSet[row].length; column++) {
-                    if (input == dataSet[row][column]) {
-                        System.out.println("Case " + caseNo + ": " + (column + 1) + ' ' + (row + 1));
-                    }
-                }
+            root = (long) Math.ceil(Math.sqrt(seconds));
+            lackings = (long) Math.pow(root, 2) - seconds;
+
+            if (lackings < root) {
+                row = root;
+                column = lackings + 1;
+            } else {
+                column = root;
+                row = (long) (seconds - (Math.pow(root - 1, 2)));
             }
+
+            if (root % 2 == 0) {
+                long temp = column;
+                column = row;
+                row = temp;
+            }
+
+            System.out.println("Case " + caseNo + ": " + column + " " + row);
 
             caseNo++;
         }
