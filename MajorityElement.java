@@ -21,7 +21,7 @@ public class MajorityElement {
         }
         return res;*/
 
-        int mj = (nums.length + 1) / 2;
+        /*int mj = (nums.length + 1) / 2;
         int n = 1, k = 0;
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
@@ -34,11 +34,38 @@ public class MajorityElement {
             n = Math.max(c, n);
             k = n > c ? k : t;
         }
-        return n >= mj ? k : 0;
+        return n >= mj ? k : 0;*/
+
+        /*Arrays.sort(nums);
+        return nums[nums.length / 2];*/
+
+        /*HashMap<Integer, Integer> hm = new HashMap<>();
+        for (int num : nums) {
+            if (hm.containsKey(num)) {
+                hm.put(num, hm.get(num) + 1);
+            } else hm.put(num, 1);
+        }
+        int res = 0;
+        for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
+            if (entry.getValue() > (nums.length / 2)) {
+                res = entry.getKey();
+                break;
+            }
+        }
+        return res;*/
+
+        int selected = 0, count = 0;
+        for (int num : nums) {
+            if (count == 0) selected = num;
+            if (selected == num) count++;
+            else count--;
+        }
+
+        return selected;
     }
 
     public static void main(String[] args) {
-        int[] arr = {1};
+        int[] arr = {2, 2, 2, 2, 1, 1, 1,};
         System.out.println(majorityElement(arr));
     }
 }
