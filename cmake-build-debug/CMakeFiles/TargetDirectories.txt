@@ -1,0 +1,3 @@
+/media/Office/Personal/CodeForces/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/media/Office/Personal/CodeForces/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/Office/Personal/CodeForces/cmake-build-debug/CMakeFiles/CodeForces.dir
